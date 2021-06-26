@@ -5,7 +5,9 @@ Button::Button(int pin) {
 }
 
 bool Button::getState() {
-  return digitalRead(this->pin)==HIGH;
+	bool currentState = digitalRead(this->pin) == HIGH;
+	this->previousState = currentState;
+	return currentState;
 }
 
 bool Button::getPreviousState() {
